@@ -5,6 +5,9 @@ const app = express();
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 
 app.use(cors());
 
@@ -20,7 +23,6 @@ app.get('/api/hello', function(req, res) {
 });
 
 
-app.use(express.json());
 let urlDatabase = [];
 const dns = require('dns');
 const { URL } = require('url');
